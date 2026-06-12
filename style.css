@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.stock-card {
+    background: #1e293b;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+.stock-card:hover {
+    transform: translateY(-2px);
+}
+
+.stock-card p {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22c55e;
+}
