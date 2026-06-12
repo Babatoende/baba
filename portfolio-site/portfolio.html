@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mijn portfolio — Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="logo">Ledger<span class="dot">.</span></div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Mijn portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero" style="padding-bottom: 32px;">
+      <p class="eyebrow">Mijn portfolio</p>
+      <h1 style="max-width: 20ch;">Jouw aandelen en ETF's, met live koersen en winst.</h1>
+      <p class="lead">
+        Voeg een positie toe met het aantal aandelen en de prijs waarvoor je
+        ze hebt gekocht. Ledger berekent automatisch je huidige waarde, de
+        winst van vandaag en je totale resultaat.
+      </p>
+    </section>
+
+    <section style="margin-top: 32px;">
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="label">Totale waarde</div>
+          <div class="value" id="sum-value">—</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">Totale winst / verlies</div>
+          <div class="value" id="sum-total-profit">—</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">Resultaat vandaag</div>
+          <div class="value" id="sum-day-profit">—</div>
+        </div>
+        <div class="summary-card">
+          <div class="label">Aantal posities</div>
+          <div class="value" id="sum-positions">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="add-form">
+        <h3>Positie toevoegen</h3>
+        <form id="add-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="input-symbol">Ticker-symbool</label>
+              <input type="text" id="input-symbol" placeholder="bv. AAPL of VWCE.DE" required />
+            </div>
+            <div class="form-group">
+              <label for="input-name">Naam (optioneel)</label>
+              <input type="text" id="input-name" placeholder="bv. Apple Inc." />
+            </div>
+            <div class="form-group">
+              <label for="input-shares">Aantal</label>
+              <input type="number" id="input-shares" step="any" min="0" placeholder="bv. 10" required />
+            </div>
+            <div class="form-group">
+              <label for="input-buyprice">Aankoopprijs</label>
+              <input type="number" id="input-buyprice" step="any" min="0" placeholder="bv. 150.00" required />
+            </div>
+            <button type="submit" class="btn">Toevoegen</button>
+          </div>
+        </form>
+        <p class="form-hint">
+          Gebruik het ticker-symbool zoals het op Yahoo Finance staat — bijvoorbeeld
+          <code>AAPL</code> (Apple), <code>VWCE.DE</code> (Vanguard FTSE All-World ETF op Xetra),
+          of <code>ASML.AS</code> (ASML op Euronext Amsterdam).
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Mijn posities</h2>
+        <span class="meta" id="last-updated">Live koersen</span>
+      </div>
+
+      <div id="table-wrap" style="overflow-x: auto;">
+        <table class="holdings-table">
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Aantal</th>
+              <th>Aankoopprijs</th>
+              <th>Huidige koers</th>
+              <th>Huidige waarde</th>
+              <th>Resultaat vandaag</th>
+              <th>Totale winst / verlies</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="holdings-body"></tbody>
+        </table>
+      </div>
+
+      <div class="empty-state" id="empty-state">
+        Je hebt nog geen posities toegevoegd.<br />
+        Vul hierboven een ticker-symbool, aantal en aankoopprijs in om te beginnen.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:12px;">
+      <span>Ledger — persoonlijk dashboard, geen beleggingsadvies.</span>
+      <span>Je gegevens worden lokaal in je browser opgeslagen.</span>
+    </div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>
