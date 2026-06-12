@@ -1,19 +1,106 @@
-<div class="stock-card">
-    <div>
-        <h2>ASML</h2>
-    </div>
-    <div class="price" id="asml-price">
-        Laden...
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mijn Portfolio</title>
 
-<div class="stock-card">
-    <div>
-        <h2>IWDA</h2>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#0f172a;
+            color:white;
+            min-height:100vh;
+            padding:30px;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+        }
+
+        h1{
+            margin-bottom:25px;
+        }
+
+        .card{
+            background:#1e293b;
+            border-radius:15px;
+            padding:20px;
+            margin-bottom:15px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .symbol{
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .name{
+            color:#94a3b8;
+            margin-top:5px;
+        }
+
+        .price{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .positive{
+            color:#22c55e;
+        }
+
+        .negative{
+            color:#ef4444;
+        }
+
+        .change{
+            margin-top:5px;
+            font-size:14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Mijn Portfolio</h1>
+
+    <div class="card">
+        <div>
+            <div class="symbol">ASML</div>
+            <div class="name">ASML Holding NV</div>
+        </div>
+
+        <div>
+            <div class="price" id="asml-price">Laden...</div>
+            <div class="change" id="asml-change"></div>
+        </div>
     </div>
-    <div class="price" id="iwda-price">
-        Laden...
+
+    <div class="card">
+        <div>
+            <div class="symbol">IWDA</div>
+            <div class="name">iShares Core MSCI World UCITS ETF</div>
+        </div>
+
+        <div>
+            <div class="price" id="iwda-price">Laden...</div>
+            <div class="change" id="iwda-change"></div>
+        </div>
     </div>
+
 </div>
 
 <script src="app.js"></script>
+
+</body>
+</html>
