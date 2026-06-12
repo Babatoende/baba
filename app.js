@@ -1,15 +1,35 @@
 const API_KEY = "d8m3ufhr01qkiso5e880d8m3ufhr01qkiso5e88g";
 
-async function loadPrice(symbol, elementId) {
-    const response = await fetch(
-        `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`
-    );
+async function loadPrice(symbol, priceId, changeId) {
+    try {
+        const response = await fetch(
+            `https://finnhub.io/api/v1/quote?symbol=${symbol}&token=${API_KEY}`
+        );
 
-    const data = await response.json();
+        const data = await response.json();
 
-    document.getElementById(elementId).innerText =
-        `€ ${data.c.toFixed(2)}`;
+        const priceElement = document.getElementById(priceId);
+        const changeElement = document.getElementById(changeId);
+
+        priceElement.textContent = `€ ${data.c.toFixed(2)}`;
+
+        const percent = data.dp;
+        changeElement.textContent = `${percent.toFixed(2)}% vandaag`;
+
+        if (percent >= 0) {
+            priceElement.classList.add("positive");
+            changeElement.classList.add("positive");
+        } else {
+            priceElement.classList.add("negative");
+            changeElement.classList.add("negative");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-loadPrice("ASML.AS", "asml-price");
-loadPrice("IWDA.AS", "iwda-price");
+// ASML op Euronext Amsterdam
+loadPrice("ASML.AS", "asml-price", "asml-change");
+
+// IWDA op Euronext Amsterdam
+loadPrice("IWDA.AS", "iwda-price", "iwda-change");
